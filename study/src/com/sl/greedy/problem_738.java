@@ -23,7 +23,21 @@ public class problem_738 {
      * @return
      */
     public int monotoneIncreasingDigits(int n) {
+        String s = String.valueOf(n);
+        char[] chars = s.toCharArray();
+        int start = s.length();
+        for (int i = s.length() - 2; i >= 0; i--) {
+            if (chars[i] > chars[i + 1]) {//当前一个大于后一个数字时，则将前一个数--，更新开始变为9的位置
+                chars[i]--;//将当前数--，用于后面的判断中
+                start = i+1;
+            }
+        }
 
+        //从开始变为9的位置给数赋值为9
+        for (int i = start; i < s.length(); i++) {
+            chars[i] = '9';
+        }
+        return Integer.parseInt(String.valueOf(chars));
     }
 
 }
