@@ -1,0 +1,23 @@
+
+m	java:S117P"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÒÄ¹ü8ÊÈø»à1
+m	java:S117Q"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ïöƒÉ8ËÈø»à1
+m	java:S117T"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ç’‰¦8ËÈø»à1
+{
+java:S14886"^Immediately return this expression instead of assigning it to the temporary variable "result".(Ÿéƒ8´™ƒ¼à1
+n	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ˆ˜¦Æıÿÿÿÿ8ÌÈø»à1
+m
+java:S1149%"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(Çáç€8àÈø»à1
+r
+java:S1149&"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(Üş±Ñùÿÿÿÿ8àÈø»à1
+m
+java:S1149%"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(Çáç€8âÈø»à1
+r
+java:S1149&"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(Üş±Ñùÿÿÿÿ8âÈø»à1
+c
+java:S1126D"AReplace this if-then-else statement by a single return statement.(‰Âİûÿÿÿÿ8î‰ù»à1
+X
+java:S1854T";Remove this useless assignment to local variable "param_4".(Ç’‰¦8èÈø»à1
+L	java:S106R"+Replace this use of System.out by a logger.(ÛåÑûÿÿÿÿ8êÈø»à1
+G	java:S106S"+Replace this use of System.out by a logger.(û¡Úü8ëÈø»à1
+I
+java:S1481T",Remove this unused "param_4" local variable.(Ç’‰¦8ëÈø»à1

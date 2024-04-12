@@ -1,26 +1,43 @@
 package com.sl.day;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 // 注意类名必须为 Main, 不要有任何 package xxx 信息
 public class Main {
     public static void main(String[] args) {
+//        Scanner in = new Scanner(System.in);
+//        // 注意 hasNext 和 hasNextLine 的区别
+//        String s1 = in.nextLine();
+//        System.out.println();
+//        String s2 = in.nextLine();
+//        int result = 0;
+//        s1 = s1.toLowerCase();
+//       s2 = s2.toLowerCase();
+//        for(int i = 0;i < s1.length();i++){
+//            if(s1.charAt(i) == s2.charAt(0)){
+//                result++;
+//            }
+//        }
+//        System.out.println(s1);
+//        System.out.println(result);
+
         Scanner in = new Scanner(System.in);
-        // 注意 hasNext 和 hasNextLine 的区别
-        String s1 = in.nextLine();
-        System.out.println();
-        String s2 = in.nextLine();
-        int result = 0;
-        s1 = s1.toLowerCase();
-       s2 = s2.toLowerCase();
-        for(int i = 0;i < s1.length();i++){
-            if(s1.charAt(i) == s2.charAt(0)){
-                result++;
+        String str = in.nextLine();
+        int len = str.length();
+        int x = len % 8;
+        if(x != 0){
+            for(int i = 0;i < 8 - x;i++){
+                str = str + '0';
             }
         }
-        System.out.println(s1);
-        System.out.println(result);
+
+        for(int i = 0; i< len;i++){
+            if((i+1) % 8 == 0){
+                System.out.println(str.substring(i - 7,i + 1));
+            }
+        }
 
 
     }
