@@ -24,7 +24,15 @@ public class problem_1014 {
      * @return
      */
     public int maxScoreSightseeingPair(int[] values) {
-        return 0;
+        int lne = values.length;
+        int res = 0;
+        int  r = values[0] - 1;
+        for (int i = 1; i < lne; i++) {
+            res = Math.max(res,r + values[i]);
+            r = Math.max(r,values[i]);
+            r--;
+        }
+        return res;
     }
 
 }
