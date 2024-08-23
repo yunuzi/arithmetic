@@ -27,23 +27,50 @@ public class problem_139 {
      * @param wordDict
      * @return
      */
+//    public boolean wordBreak(String s, List<String> wordDict) {
+//        int len = s.length();
+//    Boolean [] dp = new Boolean[len + 1];
+//        for(int i = 0;i <= s.length();i++){
+//            dp[i] = false;
+//        }
+//    dp[0] = true;
+//    for(int j = 1;j <= len;j++){
+//        for(int i = 0;i < wordDict.size();i++){
+//            if(j >= wordDict.get(i).length() && dp[j - wordDict.get(i).length()]){
+//                if(s.substring(j - wordDict.get(i).length(),j).equals(wordDict.get(i))){
+//                    dp[j] = dp[j - wordDict.get(i).length()];
+//                }
+//            }
+//        }
+//    }
+//    return dp[s.length()];
+//    }
+
     public boolean wordBreak(String s, List<String> wordDict) {
-        int len = s.length();
-    Boolean [] dp = new Boolean[len + 1];
-        for(int i = 0;i <= s.length();i++){
-            dp[i] = false;
+        return wordBreakHelper(s, 0, wordDict, new boolean[s.length()]);
+    }
+
+    private boolean wordBreakHelper(String s, int i, List<String> wordDict, boolean[] cache) {
+        if (i == s.length()) {
+            return true;
         }
-    dp[0] = true;
-    for(int j = 1;j <= len;j++){
-        for(int i = 0;i < wordDict.size();i++){
-            if(j >= wordDict.get(i).length() && dp[j - wordDict.get(i).length()]){
-                if(s.substring(j - wordDict.get(i).length(),j).equals(wordDict.get(i))){
-                    dp[j] = dp[j - wordDict.get(i).length()];
+
+        if (cache[i] == true) {
+            return false;
+        }
+
+        String cur = s.substring(i);
+        for (String word : wordDict) {
+            if (cur.startsWith(word)) {
+                boolean result = wordBreakHelper(s, i + word.length(), wordDict, cache);
+                if (result == true) {
+                    return true;
                 }
             }
         }
-    }
-    return dp[s.length()];
+
+        cache[i] = true;
+        return false;
     }
 
     @Test
