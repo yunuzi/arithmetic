@@ -2,6 +2,9 @@ package com.sl.arithmeticTrain;
 
 import org.junit.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @Author：sl
  * @Package：com.sl.arithmeticTrain
@@ -24,27 +27,22 @@ public class problem_974 {
      * @return
      */
     public int subarraysDivByK(int[] nums, int k) {
-        int len = nums.length;
-        int [] pre = new int[len];
-        pre[0] = nums[0];
-        for(int i = 1; i < len; i++){
-            pre[i] = pre[i -1] + nums[i];
+        Map<Integer, Integer> record = new HashMap<Integer, Integer>();
+        record.put(0, 1);
+        int sum = 0, ans = 0;
+        for (int elem : nums) {
+            sum += elem;
+            // 注意 Java 取模的特殊性，当被除数为负数时取模结果为负数，需要纠正
+            int modulus = (sum % k + k) % k;
+            int same = record.getOrDefault(modulus, 0);
+            ans += same;
+            record.put(modulus, same + 1);
         }
-        int res = 0;
-        for(int i = 0; i< len; i++){
-            int temp = pre[i];
-            if(temp % k == 0)
-                res++;
-            for(int j = 0; j < i; j++){
-                if((temp - pre[j]) % k == 0)
-                    res++;
-            }
-        }
-        return res;
+        return ans;
     }
 
     @Test
     public void test(){
-        subarraysDivByK(new int[]{4,5,0,-2,-3,1},5);
+        System.out.println(subarraysDivByK(new int[]{4, 5, 0, -2, -3, 1}, 5));
     }
 }

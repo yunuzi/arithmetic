@@ -181,3 +181,23 @@ T
 $study/src/com/sl/dp/problem_139.java,1\d\1db874ef4709cbfc0c5a0c5993cf35963bfb7b00
 T
 $study/src/com/sl/dp/problem_516.java,0\2\02f9abef96d6bccc06469c644d64780b27cc6abb
+V
+&study/src/com/sl/day/problem_3176.java,a\e\ae4828a45c92fd6ba8fbc16cc9c6a28f47eb7c9e
+a
+1study/src/com/sl/arithmeticTrain/problem_930.java,3\f\3f6b63544cd1f7d357dd3e1e1eea9bead8f96be4
+a
+1study/src/com/sl/arithmeticTrain/problem_560.java,8\d\8d33f8e4f11a9e1093332ba35a7aac0627502fe4
+b
+2study/src/com/sl/arithmeticTrain/problem_1542.java,2\f\2f7117df352577d9d9922245023f9bae5fb8a831
+V
+&study/src/com/sl/day/problem_2576.java,c\a\cab3c317a28a21190ae1712afb94b4aff39ba8e6
+U
+%study/src/com/sl/day/problem_390.java,b\d\bda580b0f6e413323e806856355383a2bf5ce91c
+V
+&study/src/com/sl/Study/double_139.java,5\c\5ce95e3c8f264046949d522e7e0217e23a727a44
+>
+arithmetic.iml,8\d\8d50ca206292a4cd370fe4b2d8cfee4e2a1a6cd6
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+?
+study/study.iml,d\a\da4d9bddb9505f2651aa50ac93d883596ccc1bd5
