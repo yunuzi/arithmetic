@@ -1,5 +1,7 @@
 package com.sl.arithmeticTrain;
 
+import org.junit.Test;
+
 /**
  * @Author：sl
  * @Package：com.sl.arithmeticTrain
@@ -10,6 +12,9 @@ package com.sl.arithmeticTrain;
  */
 public class problem_2438 {
     /**
+     * 我写的有问题，前缀乘积太大了
+     *
+     *
      * 2438. 二的幂数组中查询范围内的乘积
      * 中等
      * 相关标签
@@ -25,6 +30,68 @@ public class problem_2438 {
      * @return
      */
     public int[] productQueries(int n, int[][] queries) {
-        return null;
+        int arr[] = new int[32];
+        int m = n;
+        int k = 0;
+        while(m != 0){
+            if(m == 1){
+                arr[k++] = 0;
+                m = 0;
+            }else {
+                int temp = dep(m);
+                arr[k++] = temp;
+                m -= (int) Math.pow(2,temp);
+            }
+        }
+        long [] powers = new long[k];
+        powers[0] = arr[k - 1];
+        for(int i = 1; i < k; i++){
+            powers[i] = (powers[i - 1] + arr[k - i - 1]);
+        }
+        int [] ans = new int[queries.length];
+        for(int i = 0; i < queries.length; i++){
+//            ans[i] = (int)( (powers[queries[i][1]] / (queries[i][0] - 1 >= 0 ? powers[queries[i][0] - 1] : 1) ) % 1000000007);
+            ans[i] = (int) ( Math.pow(2,powers[queries[i][1]] - (queries[i][0] - 1 >= 0 ? powers[queries[i][0] - 1] : 0)) % 1000000007);
+        }
+        return ans;
     }
+    public int dep(int n){
+        int dep = 1;
+        int x = 0;
+        while(dep <= n){
+            dep = dep << 1;
+            x++;
+        }
+        return x - 1;
+    }
+
+    @Test
+    public void test(){
+        productQueries(2, new int[][]{{0,0}});
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    class Solution:
+//    def productQueries(self, n: int, queries: List[List[int]]) -> List[int]:
+//    s = [0]
+//            for i in range(32):
+//            if n & (1 << i):
+//            s.append(s[-1] + i)
+//    ans = []
+//    mod = 10 ** 9 + 7
+//            for l, r in queries:
+//            ans.append(pow(2, (s[r+1] - s[l]), mod))
+//            return ans
 }
