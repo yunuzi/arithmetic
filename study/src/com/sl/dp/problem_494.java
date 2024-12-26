@@ -1,6 +1,7 @@
 package com.sl.dp;
 
 
+import java.util.Arrays;
 
 /**
  * @Author：sl
@@ -27,24 +28,46 @@ public class problem_494 {
      * @param target
      * @return
      */
+
+    private int []num;
+    private int [][]memo;
     public int findTargetSumWays(int[] nums, int target) {
         int sum = 0;
-        for(int i = 0;i < nums.length;i++){
-            sum += nums[i];
+        for(int x : nums) {
+            sum += x;
         }
-        //如果target过大 sum将无法满足
-        if ( target < 0 && sum < -target) return 0;
-        if ((target + sum) % 2 != 0) return 0;
-        int left = (sum + target) / 2;
-        if(left < 0) left = - left;
-        int [] dp = new int[left + 1];
-        dp[0] = 1;
-        for(int i = 0;i < nums.length;i++){
-            for(int j = left;j >= nums[i];j--){
-                dp[j] += dp[j - nums[i]];
-            }
+
+        sum -= Math.abs(target);
+        if(sum < 0 || sum % 2 == 1) {
+            return 0;
         }
-        return dp[left];
+
+        //背包容量
+        int m = sum / 2;
+        this.num = nums;
+        this.memo = new int[nums.length][m + 1];
+        for (int[] row : memo) {
+            Arrays.fill(row, -1);
+        }
+
+        return dfs(nums.length - 1,m);
     }
+
+    private int dfs(int i, int m) {
+        if(i < 0) {
+            return m == 0 ? 1 : 0;
+        }
+        if(memo[i][m] != -1) { //被选过，直接跳过
+            return memo[i][m];
+        }
+
+        if(m < num[i]) {//超过背包容量，不能选
+            return memo[i][m] = dfs(i -1,m);
+        }
+
+        //选和不选加一起
+        return memo[i][m] = dfs(i-1,m) + dfs(i -1,m - num[i]);
+    }
+
 }
 

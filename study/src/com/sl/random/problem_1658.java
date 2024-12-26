@@ -101,9 +101,6 @@ public class problem_1658 {
 
     @Test
     public void test(){
-
-
-
         minOperations(new int[]{5,2,3,1,1},5);
     }
 }
