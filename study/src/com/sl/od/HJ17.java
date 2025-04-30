@@ -85,59 +85,59 @@ public class HJ17 {
      * 最终坐标，以逗号分隔
      * @param args
      */
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        // 注意 hasNext 和 hasNextLine 的区别
-        while (in.hasNext()) { // 注意 while 处理多个 case
-            String str = in.next();
-            String[] split = str.split(";");
-            int x = 0;
-            int y = 0;
-            for(int i = 0;i<split.length;i++){
-                if(split[i].length()>1){
-                    if(split[i].charAt(0)=='A'){
-                        String substring = split[i].substring(1);
-                        if(substring.length() <=2){
-                            if(!substring.matches("[0-9]+")){
-                                continue;
-                            }else {
-                                x = x-Integer.parseInt(substring);
-                            }
-                        }
-                    }
-                    if(split[i].charAt(0)=='D'){
-                        String substring = split[i].substring(1);
-                        if(substring.length() <=2){
-                            if(!substring.matches("[0-9]+")){
-                                continue;
-                            }else {
-                                x = x+Integer.parseInt(substring);
-                            }
-                        }
-                    }
-                    if(split[i].charAt(0)=='W'){
-                        String substring = split[i].substring(1);
-                        if(substring.length() <=2){
-                            if(!substring.matches("[0-9]+")){
-                                continue;
-                            }else {
-                                y = y+Integer.parseInt(substring);
-                            }
-                        }
-                    }
-                    if(split[i].charAt(0)=='S'){
-                        String substring = split[i].substring(1);
-                        if(substring.length() <=2){
-                            if(!substring.matches("[0-9]+")){
-                                continue;
-                            }else {
-                                y = y-Integer.parseInt(substring);
-                            }
-                        }
-                    }
-                }
-            }
-            System.out.println(x+","+y);
-        }
-    }
+//    public static void main(String[] args) {
+//        Scanner in = new Scanner(System.in);
+//        // 注意 hasNext 和 hasNextLine 的区别
+//        while (in.hasNext()) { // 注意 while 处理多个 case
+//            String str = in.next();
+//            String[] split = str.split(";");
+//            int x = 0;
+//            int y = 0;
+//            for(int i = 0;i<split.length;i++){
+//                if(split[i].length()>1){
+//                    if(split[i].charAt(0)=='A'){
+//                        String substring = split[i].substring(1);
+//                        if(substring.length() <=2){
+//                            if(!substring.matches("[0-9]+")){
+//                                continue;
+//                            }else {
+//                                x = x-Integer.parseInt(substring);
+//                            }
+//                        }
+//                    }
+//                    if(split[i].charAt(0)=='D'){
+//                        String substring = split[i].substring(1);
+//                        if(substring.length() <=2){
+//                            if(!substring.matches("[0-9]+")){
+//                                continue;
+//                            }else {
+//                                x = x+Integer.parseInt(substring);
+//                            }
+//                        }
+//                    }
+//                    if(split[i].charAt(0)=='W'){
+//                        String substring = split[i].substring(1);
+//                        if(substring.length() <=2){
+//                            if(!substring.matches("[0-9]+")){
+//                                continue;
+//                            }else {
+//                                y = y+Integer.parseInt(substring);
+//                            }
+//                        }
+//                    }
+//                    if(split[i].charAt(0)=='S'){
+//                        String substring = split[i].substring(1);
+//                        if(substring.length() <=2){
+//                            if(!substring.matches("[0-9]+")){
+//                                continue;
+//                            }else {
+//                                y = y-Integer.parseInt(substring);
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//            System.out.println(x+","+y);
+//        }
+//    }
 }

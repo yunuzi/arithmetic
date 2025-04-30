@@ -1,5 +1,9 @@
 package com.sl.dp;
 
+import org.junit.Test;
+
+import java.util.Arrays;
+
 /**
  * @Author：sl
  * @Package：com.sl.dp
@@ -23,7 +27,6 @@ public class problem_96 {
         int [] dp = new int[n + 1];
         //初始化dp数组
         dp[0] = 1;
-        dp[1] = 1;
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= i; j++) {
                 dp[i] += dp[j - 1] * dp[i - j];
@@ -31,7 +34,11 @@ public class problem_96 {
         }
 
         return dp[n];
+    }
 
+    @Test
+    public void test() {
+        System.out.println(numTrees(2));
     }
 
 
